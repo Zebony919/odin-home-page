@@ -16,13 +16,8 @@ p {
 }
 
 img {
-    max-width: 300px;
-}
-
-/* border for design purpose */
-.aboutContent,
-h1 {
-    border: 2px solid black;
+    max-width: 100%;
+    height: auto;
 }
 
 /* about section */
@@ -36,6 +31,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding: 40px 20px;
 }
 
 .diagonalBlue {
@@ -49,18 +45,36 @@ h1 {
 
 .aboutContent {
     max-width: 1000px;
+    width: 100%;
     height: auto;
     display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    box-shadow: 5px 5px 10px rgb(70, 69, 69);
 }
 
 .manPhoto {
-    transform: scale(1.2) translateX(-25px);
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    flex-shrink: 0;
+    transform: scale(1.2)
 }
 
 .aboutText {
+    flex: 1;
     min-width: 300px;
     background-color: white;
     padding: 30px;
+}
+
+.aboutText h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.aboutText p {
+    font-size: 16px;
 }
 
 /* My Work section */
@@ -73,26 +87,30 @@ h1 {
     align-items: center;
     margin-top: 100px;
     margin-bottom: 150px;
+    padding: 40px 20px;
 }
 
 .workTitle {
     font-size: 45px;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .projectContainer {
-    width: 80%;
+    width: 100%;
+    max-width: 1200px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 50px;
-    margin-right: 80px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 0 auto;
 }
 
 .project {
-    min-width: 400px;
+    min-width: 0;
     height: 500px;
-    box-shadow: 5px 5px 10px rgb(70, 69, 69)
+    box-shadow: 5px 5px 10px rgb(70, 69, 69);
+    display: flex;
+    flex-direction: column;
 }
 
 .projectPhoto {
@@ -102,6 +120,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .projectDescription {
@@ -109,20 +128,318 @@ h1 {
     padding: 20px;
 }
 
+.projectDescription h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.projectDescription p {
+    font-size: 16px;
+}
+
 /* Footer section */
 footer {
     width: 100%;
-    height: 800px;
+    height: auto;
     background-color: blue;
     display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    min-height: 400px;
+}
+
+.footerText {
+    flex: 1;
+    min-width: 300px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    gap: 30px;
 }
 
 .footerImg {
-    width: 400px;
-    height: 400px;
+    flex: 1;
+    min-width: 300px;
+    height: auto;
+    min-height: 400px;
+    object-fit: cover;
+    max-width: none;
+}
+
+.footerTitle {
+    font-size: 70px;
+    margin: 0;
+}
+
+.footerWords {
+    font-size: 18px;
+    margin: 0;
+    color: white;
+}
+
+.contactIcon {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    color: white;
+}
+
+.contactIcon p {
+    margin: 0;
+}
+
+.logos {
+    display: flex;
+    gap: 30px;
 }
 
 .logo {
     width: 50px;
     height: 50px;
+    object-fit: contain;
+}
+
+/* TABLET  */
+@media (max-width: 1024px) {
+    .about {
+        min-height: 600px;
+        padding: 30px 20px;
+    }
+
+    .aboutContent {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .manPhoto {
+        width: 250px;
+        height: 250px;
+    }
+
+    .aboutText {
+        width: 100%;
+    }
+
+    .aboutText h1 {
+        font-size: 32px;
+    }
+
+    .workTitle {
+        font-size: 36px;
+    }
+
+    .projectContainer {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .project {
+        height: 400px;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+
+    .footerText {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .footerImg {
+        width: 100%;
+        min-height: 300px;
+    }
+
+    .footerTitle {
+        font-size: 50px;
+    }
+
+    .footerWords {
+        font-size: 16px;
+    }
+
+    .contactIcon {
+        justify-content: center;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .about {
+        min-height: 500px;
+        padding: 20px;
+    }
+
+    .diagonalBlue {
+        width: 100%;
+        transform: skewX(-20deg) translateX(-200px) scaleX(3);
+    }
+
+    .aboutContent {
+        flex-direction: column;
+        gap: 20px;
+        box-shadow: none;
+    }
+
+    .manPhoto {
+        width: 100%;
+        max-width: 250px;
+        height: 250px;
+    }
+
+    .aboutText {
+        width: 100%;
+        padding: 20px;
+        background-color: white;
+    }
+
+    .aboutText h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .aboutText p {
+        font-size: 14px;
+    }
+
+    .myWork {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding: 20px;
+    }
+
+    .workTitle {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .projectContainer {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .project {
+        height: 350px;
+        min-width: unset;
+    }
+
+    .projectPhoto {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    .projectDescription {
+        padding: 15px;
+    }
+
+    .projectDescription h2 {
+        font-size: 18px;
+    }
+
+    .projectDescription p {
+        font-size: 14px;
+    }
+
+    footer {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .footerText {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 20px;
+    }
+
+    .footerImg {
+        width: 100%;
+        height: 250px;
+        min-height: 250px;
+    }
+
+    .footerTitle {
+        font-size: 36px;
+    }
+
+    .footerWords {
+        font-size: 14px;
+    }
+
+    .contactIcon {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+        border: 2px solid white;
+    }
+
+    .logos {
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* SMALL MOBILE */
+@media (max-width: 480px) {
+    .about {
+        min-height: 450px;
+        padding: 15px;
+    }
+
+    .aboutText h1 {
+        font-size: 24px;
+    }
+
+    .aboutText p {
+        font-size: 13px;
+    }
+
+    .workTitle {
+        font-size: 24px;
+    }
+
+    .projectContainer {
+        gap: 15px;
+    }
+
+    .project {
+        height: 300px;
+    }
+
+    .projectPhoto {
+        font-size: 16px;
+    }
+
+    .footerTitle {
+        font-size: 28px;
+    }
+
+    .footerWords {
+        font-size: 13px;
+    }
+
+    .contactIcon {
+        flex-direction: column;
+    }
+
+    .logo {
+        width: 35px;
+        height: 35px;
+    }
 }
